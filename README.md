@@ -21,7 +21,11 @@ This tool helps identify discrepancies between your Laravel `.env` file and the 
 
 ## Installation
 
-1. Clone or download this project
+1.  Clone or download this project
+    ```bash
+    git clone git@github.com:tommykw/laravel-env-diff.git
+    cd laravel-env-diff
+    ```
 2. Build the binary:
    ```bash
    cargo build --release
