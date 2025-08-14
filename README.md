@@ -71,11 +71,15 @@ No differences found.
 3. **Load cached config**: Uses PHP to load and serialize `bootstrap/cache/config.php`
 4. **Compare values**: Checks if `.env` values are present in the cached configuration
 
-## Limitations
+## Note on Artisan Commands and Current Limitations
 
-- **Environment variable expansion**: The tool does not support environment variable expansion syntax like `MAIL_FROM_NAME="${APP_NAME}"`. Values with `${VAR}` syntax may be incorrectly flagged as differences.
-- **Complex config logic**: Only handles simple `env()` calls. Complex PHP logic in config files is not supported.
-- **Nested array matching**: Uses simple string matching which may have edge cases with deeply nested configurations.
+I wasn't aware that custom Artisan commands could be created, so I implemented this tool as a standalone Rust CLI.
+
+Also, there are some cases that the current implementation does not yet cover, including:
+- Environment variable expansion (e.g., `MAIL_FROM_NAME="${APP_NAME}"`)
+- Values present in `$_ENV` but not in the `.env` file
+- `.env.[environment]` files for environment-specific configuration
+- Non-local file systems
 
 ## Error Handling
 
